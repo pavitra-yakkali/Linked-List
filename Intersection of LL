@@ -1,0 +1,29 @@
+ublic class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        int lenA=0;
+        ListNode tempA=headA;
+        while(tempA!=null){
+            lenA++;
+            tempA=tempA.next;
+        }
+        int lenB=0;
+        ListNode tempB=headB;
+        while(tempB!=null){
+            lenB++;
+            tempB=tempB.next;
+        }
+        while(lenA>lenB){
+            lenA--;
+            headA=headA.next;
+        }
+        while(lenB>lenA){
+            lenB--;
+            headB=headB.next;
+        }
+        while(headA!=headB){
+            headA=headA.next;
+            headB=headB.next;
+        }
+        return headA;
+    }
+}
